@@ -102,19 +102,20 @@ $(document).ready(function(){
 </script>
 <style type="text/css">
 	body, .mask-container{
-		position: relative;
 		width:100%;
 	}
-	.mask-container{
+	.mask-container, .mask-spacing-bottom, .mask-spacing-top{
+		position: relative;
 		z-index: 10;
 	}
 	.mask-spacing-top, .mask-inner-left, .mask-inner-right, .mask-spacing-bottom{
 		background: white;
 	}
 	.mask-spacing-top, .mask-spacing-bottom{
-		position: relative;
-		height:100px;
-		z-index:10;
+		height:50px;
+	}
+	.mask-spacing-bottom{
+		height:150px;
 	}
 	.mask-inner{
 		height:500px;
