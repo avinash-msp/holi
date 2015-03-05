@@ -79,33 +79,6 @@ body{
 	margin-left:-230px;
 }
 .no-border{border-width:0px;}
-.mask-container{
-	width:100%;
-}
-.mask-container, .mask-spacing-bottom, .mask-spacing-top{
-	position: relative;
-	z-index: 10;
-}
-.mask-spacing-top, .mask-inner-left, .mask-inner-right, .mask-spacing-bottom{
-	background: white;
-}
-.mask-spacing-top, .mask-spacing-bottom{
-	height:50px;
-}
-.mask-spacing-bottom{
-	height:150px;
-}
-.mask-inner{
-	height:500px;
-}
-.mask-inner td{
-	width:33%;
-	height:500px;
-}
-.mask-inner-middle img{
-	max-width:500px;
-	height:500px;
-}
 
 /* animation keyframes */
 
@@ -158,4 +131,34 @@ body{
   -webkit-animation-name: bounceIn;
   -moz-animation-name: bounceIn;
   animation-name: bounceIn;
+}
+
+/* mask layout */
+
+.mask-container{
+	width:100%;
+}
+.mask-container, .mask-spacing-bottom, .mask-spacing-top{
+	position: relative;
+	z-index: 10;
+}
+.mask-spacing-top, .mask-inner-left, .mask-inner-right, .mask-spacing-bottom{
+	background: white;
+}
+.mask-spacing-top, .mask-spacing-bottom{
+	height:50px;
+}
+.mask-spacing-bottom{
+	height:150px;
+}
+.mask-inner{
+	height:500px;
+}
+.mask-inner td{
+	width:33%;
+	height:500px;
+}
+.mask-inner-middle img{
+	max-width:500px;
+	height:500px;
 }
