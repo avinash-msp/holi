@@ -97,7 +97,7 @@ $(document).ready(function(){
 	    lastX = x;lastY = y;
 	    $("<div class='point bounceIn animated'></div>").appendTo('body');
 	    var rand_size = getRandomSize();
-	    $(".point").eq(i).css({'left' : (Number(lastX)-(rand_size[0]/2)).toString() + 'px','top' : (Number(lastY)-(rand_size[1]/4)).toString()  + 'px','width': rand_size[0]+ "px",'height':rand_size[1]+"px","backgroundSize":(rand_size[0]*8)+"px "+rand_size[1]+"px","backgroundPosition": "-"+(rand_size[0]*(i%8)).toString()+"px 0px"});
+	    $(".point").eq(i).css({'left' : ((+lastX)-(rand_size[0]/2)) + 'px','top' : ((+lastY)-(rand_size[1]/4)) + 'px','width': rand_size[0]+ "px",'height':rand_size[1]+"px","backgroundSize":(rand_size[0]*8)+"px "+rand_size[1]+"px","backgroundPosition": "-"+(rand_size[0]*(i%8))+"px 0px"});
 	    /*$("<img class='point' src='color_sprite.png'>").appendTo('body');
 	    var rand_size = getRandomSize();
 	    var clip_right = ((rand_size[0]/8)*(i%8+1)).toString();
