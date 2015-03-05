@@ -3,37 +3,63 @@
 <link rel="shortcut icon" type="image/x-icon" href="http://www.mysmartprice.com/favicon.ico">
 <link rel="stylesheet" type="text/css" href="reset.css">
 <style type="text/css">
-body{
-	padding:0;
-	margin:0;
-	overflow: hidden;
-	cursor:url(pichkari.gif),auto;
-}
-#logo{
-	width:50%;
-	height:50%;
-	margin:auto;
-}
-.point{
-	width:100;
-	height:141;
-	position:absolute;
-	z-index:5;
-	background:url('color_sprite.png') no-repeat;
-}
-#help{
-	font-family: arial;
-	font-size:2em;
-	position:absolute;
-	text-align: center;
-	opacity:1;
-	z-index:12;
-	top:50px;
-	left:50%;
-	margin-left:-230px;
-}
-
-.no-border{border-width:0px;}
+	body{
+		padding:0;
+		margin:0;
+		overflow: hidden;
+		cursor:url(pichkari.gif),auto;
+	}
+	#logo{
+		width:50%;
+		height:50%;
+		margin:auto;
+	}
+	.point{
+		width:100;
+		height:141;
+		position:absolute;
+		z-index:5;
+		background:url('color_sprite.png') no-repeat;
+	}
+	#help{
+		font-family: arial;
+		font-size:2em;
+		position:absolute;
+		text-align: center;
+		opacity:1;
+		z-index:12;
+		top:50px;
+		left:50%;
+		margin-left:-230px;
+	}
+	.no-border{border-width:0px;}
+	.mask-container{
+		width:100%;
+	}
+	.mask-container, .mask-spacing-bottom, .mask-spacing-top{
+		position: relative;
+		z-index: 10;
+	}
+	.mask-spacing-top, .mask-inner-left, .mask-inner-right, .mask-spacing-bottom{
+		background: white;
+	}
+	.mask-spacing-top, .mask-spacing-bottom{
+		height:50px;
+	}
+	.mask-spacing-bottom{
+		height:150px;
+	}
+	.mask-inner{
+		height:500px;
+	}
+	.mask-inner td{
+		width:33%;
+		height:500px;
+	}
+	.mask-inner-middle img{
+		max-width:500px;
+		height:500px;
+	}
 </style>
 
 <link rel="stylesheet" type="text/css" href="animate.css">
@@ -79,40 +105,8 @@ $(document).ready(function(){
 		$(".point").eq(i).css({'left' : (Number(lastX)-Number(clip_left)-(rand_size[0]/8)).toString() + 'px','top' : (Number(lastY)-(rand_size[1]/4)).toString()  + 'px','width': rand_size[0]+ "px",'height':rand_size[1]+"px","clip":"rect(0px,"+clip_right+"px,"+ rand_size[1]+ "px,"+clip_left+"px)"});*/
 		i++;
 	});
-
-	
 });
-
 </script>
-<style type="text/css">
-	body, .mask-container{
-		width:100%;
-	}
-	.mask-container, .mask-spacing-bottom, .mask-spacing-top{
-		position: relative;
-		z-index: 10;
-	}
-	.mask-spacing-top, .mask-inner-left, .mask-inner-right, .mask-spacing-bottom{
-		background: white;
-	}
-	.mask-spacing-top, .mask-spacing-bottom{
-		height:50px;
-	}
-	.mask-spacing-bottom{
-		height:150px;
-	}
-	.mask-inner{
-		height:500px;
-	}
-	.mask-inner td{
-		width:33%;
-		height:500px;
-	}
-	.mask-inner-middle img{
-		max-width:500px;
-		height:500px;
-	}
-</style>
 </head>
 <body>
 	<div class="mask-spacing-top"></div>
