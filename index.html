@@ -26,9 +26,9 @@
 		 	return [w, h];
 		}
 		var i=0, lastX=0, lastY=0;
-		$("body").on('mousemove touchmove',function (event){
-		    var x=event.clientX,
-		    	y=event.clientY,
+		$("body").on('mousemove touchmove',function (e){
+		    var x=e.clientX,
+		    	y=e.clientY,
 		    	rand_size;
 		    if(i==10){
 		    	$("#help").fadeOut();
