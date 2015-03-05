@@ -28,6 +28,8 @@ body{
 	text-align: center;
 	opacity:0;
 	z-index:12;
+	left:50%;
+	margin-left:-230px;
 }
 
 .no-border{border-width:0px;}
@@ -45,26 +47,7 @@ $(document).ready(function(){
 	var cursorOffset = {
 	   left : -20
 	 , top  : -20
-	}
-
-	
-
-	//alert(body_h);
-	$('#help').css({"opacity":"1","left":(body_w/2 - 300)+"px","top": "75px"});
-	$("#mask").load(function(){
-		var mask = document.getElementById("mask");
-		var ht_mask = getComputedStyle(mask).getPropertyValue("height");
-		var ht_mask_num = Number(ht_mask.slice(0,ht_mask.length - 2));
-		console.log("mask" + ht_mask_num);		
-		ht_doc = $(window).height();
-		console.log("doc" + body_h);
-		Top = (Number(body_h) - ht_mask_num)/2;
-		console.log("Top"+Top);
-		$("#mask").css("top",Top + "px");
-	});
-		
-		
-		
+	}	
 	function getRandomSize(){
 		var w = 25 + Math.round(Math.random() * 150);
 		var h = w*0.95;
