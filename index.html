@@ -30,7 +30,7 @@
 		    	y = e.clientY,
 		    	rand_size;
 		    if(i == 10) $("#help").fadeOut();
-		    if(Math.abs(lastX - x) + Math.abs(lastY - y) <= 20 ) return;
+		    if(Math.abs(lastX - x) + Math.abs(lastY - y) <= 20) return;
 		    lastX = x; lastY = y;
 		    $('body').append("<div class='point bounceIn animated'></div>");
 		    rand_size = getRandomSize();
