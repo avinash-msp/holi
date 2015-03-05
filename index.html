@@ -20,29 +20,29 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			function getRandomSize(){
-				var w = 25 + Math.round(Math.random() * 150);
-				var h = w * 0.95;
+				var w = 25 + Math.round(Math.random() * 150),
+						h = w * 0.95;
 			 	return [w, h];
 			}
 			var i = 0, lastX = 0, lastY = 0;
 			$(document).on('mousemove', function(e){
-		    var x = e.pageX,
-		    	y = e.pageY,
-		    	rand_size;
-		    if(i == 10) $("#help").fadeOut();
-		    if(Math.abs(lastX - x) + Math.abs(lastY - y) <= 20) return;
-		    lastX = x; lastY = y;
-		    $('body').append("<div class='point bounceIn animated'></div>");
-		    rand_size = getRandomSize();
-		    $(".point").eq(i).css({
-		    	"left" : (lastX - (rand_size[0] / 2)) + "px",
-		    	"top" : (lastY - (rand_size[1] / 4)) + "px",
-		    	"width" : rand_size[0] + "px",
-		    	"height" : rand_size[1] +"px",
-		    	"backgroundSize" : (rand_size[0] * 8) + "px " + rand_size[1] + "px",
-		    	"backgroundPosition" : "-" + (rand_size[0] * (i % 8)) + "px 0px"
-		    });
-		    i++;
+			  var x = e.pageX,
+			  		y = e.pageY,
+			  		rand_size;
+			  if(i == 10) $("#help").fadeOut();
+			  if(Math.abs(lastX - x) + Math.abs(lastY - y) <= 20) return;
+			  lastX = x; lastY = y;
+			  $('body').append("<div class='point bounceIn animated'></div>");
+			  rand_size = getRandomSize();
+			  $(".point").eq(i).css({
+			  	"left" : (lastX - (rand_size[0] / 2)) + "px",
+			  	"top" : (lastY - (rand_size[1] / 4)) + "px",
+			  	"width" : rand_size[0] + "px",
+			  	"height" : rand_size[1] +"px",
+			  	"backgroundSize" : (rand_size[0] * 8) + "px " + rand_size[1] + "px",
+			  	"backgroundPosition" : "-" + (rand_size[0] * (i % 8)) + "px 0px"
+			  });
+			  i++;
 			});
 		});
 	</script>
