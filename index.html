@@ -1,0 +1,146 @@
+<html>
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="http://sagiavinash.com/images/favicon.png?v=1.1">
+<link rel="stylesheet" type="text/css" href="reset.css">
+<style type="text/css">
+body{
+	padding:0;
+	margin:0;
+	overflow: hidden;
+	cursor:url(pichkari.gif),auto;
+}
+#logo{
+	width:50%;
+	height:50%;
+	margin:auto;
+}
+.point{
+	width:100;
+	height:141;
+	position:absolute;
+	z-index:5;
+	background:url('color_sprite.png') no-repeat;
+}
+#help{
+	font-family: arial;
+	font-size:2em;
+	position:absolute;
+	text-align: center;
+	opacity:0;
+	z-index:12;
+}
+
+.no-border{border-width:0px;}
+</style>
+
+<link rel="stylesheet" type="text/css" href="animate.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+		
+$(document).ready(function(){
+		
+	var body_w = $(window).width();
+	var left = (body_w/2)-300;
+	var body_h = $(window).height();
+	var cursorOffset = {
+	   left : -20
+	 , top  : -20
+	}
+
+	
+
+	//alert(body_h);
+	$('#help').css({"opacity":"1","left":(body_w/2 - 300)+"px","top": "75px"});
+	$("#mask").load(function(){
+		var mask = document.getElementById("mask");
+		var ht_mask = getComputedStyle(mask).getPropertyValue("height");
+		var ht_mask_num = Number(ht_mask.slice(0,ht_mask.length - 2));
+		console.log("mask" + ht_mask_num);		
+		ht_doc = $(window).height();
+		console.log("doc" + body_h);
+		Top = (Number(body_h) - ht_mask_num)/2;
+		console.log("Top"+Top);
+		$("#mask").css("top",Top + "px");
+	});
+		
+		
+		
+	function getRandomSize(){
+		var w = 25 + Math.round(Math.random() * 150);
+		var h = w*0.95;
+	 	return [w, h];
+	}
+
+	i=0;
+	var lastX=0,lastY=0;
+	$("body").on('mousemove touchmove',function (event){
+	    var x=event.clientX;
+	    var y=event.clientY;
+	    /*$('#cursor').offset({ 
+			     left: (x - cursorOffset.left)
+			   , top : (y - cursorOffset.top)
+			});*/
+	    if(i==10){
+	    	$("#help").fadeOut();
+	    }
+	    if (Math.abs(lastX - x) + Math.abs(lastY - y) <= 20 ) return;
+	    lastX = x;lastY = y;
+	    $("<div class='point bounceIn animated'></div>").appendTo('body');
+	    var rand_size = getRandomSize();
+	    $(".point").eq(i).css({'left' : (Number(lastX)-(rand_size[0]/2)).toString() + 'px','top' : (Number(lastY)-(rand_size[1]/4)).toString()  + 'px','width': rand_size[0]+ "px",'height':rand_size[1]+"px","backgroundSize":(rand_size[0]*8)+"px "+rand_size[1]+"px","backgroundPosition": "-"+(rand_size[0]*(i%8)).toString()+"px 0px"});
+	    /*$("<img class='point' src='color_sprite.png'>").appendTo('body');
+	    var rand_size = getRandomSize();
+	    var clip_right = ((rand_size[0]/8)*(i%8+1)).toString();
+    	var clip_left = ((rand_size[0]/8)*(i%8)).toString();
+		$(".point").eq(i).css({'left' : (Number(lastX)-Number(clip_left)-(rand_size[0]/8)).toString() + 'px','top' : (Number(lastY)-(rand_size[1]/4)).toString()  + 'px','width': rand_size[0]+ "px",'height':rand_size[1]+"px","clip":"rect(0px,"+clip_right+"px,"+ rand_size[1]+ "px,"+clip_left+"px)"});*/
+		i++;
+	});
+
+	
+});
+
+</script>
+<style type="text/css">
+	body, .mask-container{
+		position: relative;
+		width:100%;
+		height:100%;
+		z-index:10;
+	}
+	.mask-spacing-top, .mask-inner-left, .mask-inner-right, .mask-spacing-bottom{
+		background: white;
+	}
+	.mask-spacing-top, .mask-spacing-bottom{
+		position: relative;
+		height:100px;
+		z-index:10;
+	}
+	.mask-inner td{
+		width:33%;
+	}
+	.mask-inner-middle img{
+		max-width:500px;
+		height:500px;
+	}
+</style>
+</head>
+<body>
+	<div class="mask-spacing-top"></div>
+	<table class="mask-container">
+		<tr class="mask-inner">
+			<td class="mask-inner-left"></td>
+			<td class="mask-inner-middle">
+				<img src="msp_mask.png">
+			</td>
+			<td class="mask-inner-right"></td>
+		</tr>
+		<tr class="mask-bottom"></tr>
+	</table>
+	<div class="mask-spacing-bottom"></div>
+	<div id="cursor" style="top: 67px; left: 156px;"></div>
+	<h1 id="help">"Move Your Mouse To Play Holi"</h1>
+
+   	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
+</body>
+</html>
