@@ -18,14 +18,14 @@
 	<h1 id="help">"Move Your Mouse To Play Holi"</h1>    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		function getRandomSize(){
-			var w = 25 + Math.round(Math.random() * 150);
-			var h = w * 0.95;
-		 	return [w, h];
-		}
-		var i = 0, lastX = 0, lastY = 0;
-		$(document).on('mousemove', function(e){
+		$(document).ready(function(){
+			function getRandomSize(){
+				var w = 25 + Math.round(Math.random() * 150);
+				var h = w * 0.95;
+			 	return [w, h];
+			}
+			var i = 0, lastX = 0, lastY = 0;
+			$(document).on('mousemove', function(e){
 		    var x = e.pageX,
 		    	y = e.pageY,
 		    	rand_size;
@@ -43,8 +43,8 @@
 		    	"backgroundPosition" : "-" + (rand_size[0] * (i % 8)) + "px 0px"
 		    });
 		    i++;
+			});
 		});
-	});
 	</script>
 </body>
 </html>
