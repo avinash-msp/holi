@@ -26,8 +26,8 @@
 		}
 		var i = 0, lastX = 0, lastY = 0;
 		$(document).on('mousemove', function(e){
-		    var x = e.clientX,
-		    	y = e.clientY,
+		    var x = e.pageX,
+		    	y = e.pageY,
 		    	rand_size;
 		    if(i == 10) $("#help").fadeOut();
 		    if(Math.abs(lastX - x) + Math.abs(lastY - y) <= 20) return;
